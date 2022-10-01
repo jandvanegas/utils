@@ -36,17 +36,17 @@ def insert_images(input_file, output_file):
     assert number_of_images > 0, "Images were not found in the input file"
     with open(output_file, "a") as file_object:
         for index in range(number_of_images):
-            file_object.write(f"\n![](image_{index + first_image}.jpg)\n")
+            file_object.write(f"\n![](./img/image_{index + first_image}.jpg)\n\n---\n")
 
 
 def read_images_from_pdf(first_image, input_file):
     images = pdf2image.convert_from_path(
         input_file,
-        output_folder=".",
+        output_folder="./img",
         fmt="jpg",
     )
     for image_index, image in enumerate(images):
-        new_name = "image_" + str(image_index + first_image) + ".jpg"
+        new_name = "./img/image_" + str(image_index + first_image) + ".jpg"
         print(new_name)
         os.rename(image.filename, new_name)
     return len(images)
