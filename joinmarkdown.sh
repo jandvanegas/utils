@@ -40,5 +40,5 @@ do
 done
 
 # copying images in a central folder
-mkdir img/
-find $search_dir -type f -name "*.png" -print0 | xargs -0 cp -t img/
+mkdir -p img/
+find $search_dir -type f -name "*.png" -print0 | xargs -0 cp -u -t img/
